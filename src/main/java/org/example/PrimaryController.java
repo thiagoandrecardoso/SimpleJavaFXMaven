@@ -1,9 +1,9 @@
 package main.java.org.example;
 
-import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import main.java.org.example.App;
+
+import java.io.IOException;
 
 public class PrimaryController {
 
