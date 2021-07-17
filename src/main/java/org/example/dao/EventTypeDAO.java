@@ -1,25 +1,71 @@
 package main.java.org.example.dao;
 
+import main.java.org.example.conn.ConnectionFactory;
 import main.java.org.example.model.EventType;
 
+import javax.persistence.EntityManager;
+
 public class EventTypeDAO implements DAO<EventType>{
+
+    private final EntityManager entityManager = new ConnectionFactory().getConnection();
+
     @Override
     public EventType save(EventType object) {
-        return null;
+        try {
+            this.entityManager.getTransaction().begin();
+            this.entityManager.persist(object);
+            this.entityManager.getTransaction().commit();
+        } catch (Exception error) {
+            this.entityManager.getTransaction().rollback();
+        } finally {
+            this.entityManager.close();
+        }
+        return object;
     }
 
     @Override
     public EventType update(EventType object) {
-        return null;
+        EventType eventTypeUp = null;
+        try {
+            this.entityManager.getTransaction().begin();
+            if (object.getId() == null) {
+                this.entityManager.persist(object);
+            } else {
+                eventTypeUp = this.entityManager.merge(object);
+            }
+            this.entityManager.getTransaction().commit();
+        } catch (Exception exception) {
+            this.entityManager.getTransaction().rollback();
+        } finally {
+            this.entityManager.close();
+        }
+        return eventTypeUp;
     }
 
     @Override
     public EventType delete(Long id) {
-        return null;
+        EventType eventType = null;
+        try {
+            eventType = entityManager.find(EventType.class, id);
+            this.entityManager.getTransaction().begin();
+            this.entityManager.remove(eventType);
+            this.entityManager.getTransaction().commit();
+        } catch (Exception exception) {
+            this.entityManager.getTransaction().rollback();
+        } finally {
+            this.entityManager.close();
+        }
+        return eventType;
     }
 
     @Override
     public EventType findById(Long id) {
-        return null;
+        EventType eventType = null;
+        try {
+            eventType = entityManager.find(EventType.class, id);
+        } catch (Exception e) {
+            System.out.println("error find id\n" + e);
+        }
+        return eventType;
     }
 }
