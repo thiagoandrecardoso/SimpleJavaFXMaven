@@ -11,18 +11,21 @@ import javafx.scene.control.TextInputDialog;
 import main.java.org.example.dao.ArtistDAO;
 import main.java.org.example.dao.CitiesDAO;
 import main.java.org.example.dao.EventTypeDAO;
+import main.java.org.example.dao.EventsDAO;
 import main.java.org.example.model.Artist;
 import main.java.org.example.model.Cities;
 import main.java.org.example.model.EventType;
+import main.java.org.example.model.Events;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EventController implements Initializable {
 
-    Cities cities = null;
+    Events events = null;
 
 
     @FXML
@@ -42,11 +45,22 @@ public class EventController implements Initializable {
 
     @FXML
     private void btnSaveCity() {
-        CitiesDAO citiesDAO = new CitiesDAO();
-        cities = new Cities();
-        cities.setName(txtCity.getText());
-        cities = citiesDAO.save(cities);
-        String inf = "Salvo com id " + cities.getId();
+        EventsDAO eventsDAO = new EventsDAO();
+        events = new Events();
+        events.setName(txtCity.getText());
+
+        Cities cities = cbbCities.getSelectionModel().getSelectedItem();
+        events.setId_city(Math.toIntExact(cities.getId()));
+        Artist artist = cbbArtist.getSelectionModel().getSelectedItem();
+        events.setId_artist(Math.toIntExact(artist.getId()));
+        EventType eventType = cbbEventType.getSelectionModel().getSelectedItem();
+        events.setId_eventType(Math.toIntExact(eventType.getId()));
+
+
+        events.setDateEvent(new Date());
+
+        events = eventsDAO.save(events);
+        String inf = "Salvo com id " + events.getId();
         informationAction(inf);
     }
 
@@ -56,25 +70,25 @@ public class EventController implements Initializable {
         Optional<String> result = dialog.showAndWait();
         Long id = Long.parseLong(result.get());
 
-        CitiesDAO citiesDAO = new CitiesDAO();
-        cities = citiesDAO.findById(id);
-        if (cities != null)
-            txtCity.setText(cities.getName());
+        EventsDAO eventsDAO = new EventsDAO();
+        events = eventsDAO.findById(id);
+        if (events != null)
+            txtCity.setText(events.getName());
     }
 
     public void btnDelete() {
-        CitiesDAO citiesDAO = new CitiesDAO();
-        if (cities != null) {
-            citiesDAO.delete(cities.getId());
+        EventsDAO eventsDAO = new EventsDAO();
+        if (events != null) {
+            eventsDAO.delete(events.getId());
             txtCity.setText("");
         }
     }
 
     public void btnUpdate() {
-        CitiesDAO citiesDAO = new CitiesDAO();
-        if (cities != null) {
-            cities.setName(txtCity.getText());
-            citiesDAO.update(cities);
+        EventsDAO eventsDAO = new EventsDAO();
+        if (events != null) {
+            events.setName(txtCity.getText());
+            eventsDAO.update(events);
         }
     }
 
