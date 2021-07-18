@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import java.io.IOException;
 
-public class PrimaryController {
+public class InitialController {
 
     @FXML
     private Button btnCity;
@@ -20,6 +20,6 @@ public class PrimaryController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("/main/resources/org/example/secondary");
+        App.setRoot("/main/resources/org/example/city");
     }
 }
