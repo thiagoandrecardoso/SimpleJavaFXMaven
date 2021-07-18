@@ -11,9 +11,6 @@ public class Artist {
     private String name;
     private float cache;
 
-    @OneToOne
-    private Events events;
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -36,13 +33,5 @@ public class Artist {
 
     public void setCache(float cache) {
         this.cache = cache;
-    }
-
-    public Events getEvents() {
-        return events;
-    }
-
-    public void setEvents(Events events) {
-        this.events = events;
     }
 }

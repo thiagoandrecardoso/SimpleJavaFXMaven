@@ -16,19 +16,8 @@ public class EventType {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
 
-    @Enumerated(EnumType.ORDINAL)
-    public EnumEventTypes enumEventTypes;
-
-    public EnumEventTypes getEventTypes() {
-        return enumEventTypes;
-    }
-
-    public void setEventTypes(EnumEventTypes enumEventTypes) {
-        this.enumEventTypes = enumEventTypes;
-    }
 }
