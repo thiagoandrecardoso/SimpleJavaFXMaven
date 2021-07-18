@@ -28,7 +28,6 @@ public class CityController {
         CitiesDAO citiesDAO = new CitiesDAO();
         Cities cities = new Cities();
         cities.setName(txtCity.getText());
-        cities.setEvents(null);
         citiesDAO.save(cities);
         App.setRoot("/main/resources/org/example/initial");
     }
