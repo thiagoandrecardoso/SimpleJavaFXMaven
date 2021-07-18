@@ -19,6 +19,9 @@ import main.java.org.example.model.Events;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -56,8 +59,13 @@ public class EventController implements Initializable {
         EventType eventType = cbbEventType.getSelectionModel().getSelectedItem();
         events.setId_eventType(Math.toIntExact(eventType.getId()));
 
-
-        events.setDateEvent(new Date());
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date date = dateFormat.parse(txtDate.getText());
+            events.setDateEvent(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         events = eventsDAO.save(events);
         String inf = "Salvo com id " + events.getId();
@@ -70,10 +78,19 @@ public class EventController implements Initializable {
         Optional<String> result = dialog.showAndWait();
         Long id = Long.parseLong(result.get());
 
+        CitiesDAO citiesDAO = new CitiesDAO();
+        ArtistDAO artistDAO = new ArtistDAO();
+        EventTypeDAO eventTypeDAO = new EventTypeDAO();
+
         EventsDAO eventsDAO = new EventsDAO();
         events = eventsDAO.findById(id);
-        if (events != null)
+        if (events != null){
             txtCity.setText(events.getName());
+            cbbCities.getSelectionModel().select(citiesDAO.findById((long) events.getId_city()));
+            cbbArtist.getSelectionModel().select(artistDAO.findById((long) events.getId_artist()));
+            cbbEventType.getSelectionModel().select(eventTypeDAO.findById((long) events.getId_eventType()));
+        }
+
     }
 
     public void btnDelete() {
@@ -88,6 +105,19 @@ public class EventController implements Initializable {
         EventsDAO eventsDAO = new EventsDAO();
         if (events != null) {
             events.setName(txtCity.getText());
+            Cities cities = cbbCities.getSelectionModel().getSelectedItem();
+            events.setId_city(Math.toIntExact(cities.getId()));
+            Artist artist = cbbArtist.getSelectionModel().getSelectedItem();
+            events.setId_artist(Math.toIntExact(artist.getId()));
+            EventType eventType = cbbEventType.getSelectionModel().getSelectedItem();
+            events.setId_eventType(Math.toIntExact(eventType.getId()));
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            try {
+                Date date = dateFormat.parse(txtDate.getText());
+                events.setDateEvent(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             eventsDAO.update(events);
         }
     }
