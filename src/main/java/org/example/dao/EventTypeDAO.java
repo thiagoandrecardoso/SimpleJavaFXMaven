@@ -1,14 +1,13 @@
 package main.java.org.example.dao;
 
 import main.java.org.example.conn.ConnectionFactory;
-import main.java.org.example.model.Cities;
 import main.java.org.example.model.EventType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-public class EventTypeDAO implements DAO<EventType>{
+public class EventTypeDAO implements DAO<EventType> {
 
     private final EntityManager entityManager = new ConnectionFactory().getConnection();
 

@@ -1,6 +1,5 @@
 package main.java.org.example;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -42,7 +41,7 @@ public class CityController {
 
     public void btnDelete() {
         CitiesDAO citiesDAO = new CitiesDAO();
-        if(cities != null){
+        if (cities != null) {
             citiesDAO.delete(cities.getId());
             txtCity.setText("");
         }
@@ -50,13 +49,13 @@ public class CityController {
 
     public void btnUpdate() {
         CitiesDAO citiesDAO = new CitiesDAO();
-        if(cities != null){
+        if (cities != null) {
             cities.setName(txtCity.getText());
             citiesDAO.update(cities);
         }
     }
 
-    public void informationAction(String inf){
+    public void informationAction(String inf) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(inf);
         alert.showAndWait();

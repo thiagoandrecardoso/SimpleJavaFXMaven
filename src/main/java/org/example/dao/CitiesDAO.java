@@ -2,6 +2,7 @@ package main.java.org.example.dao;
 
 import main.java.org.example.conn.ConnectionFactory;
 import main.java.org.example.model.Cities;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;

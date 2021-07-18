@@ -2,6 +2,7 @@ package main.java.org.example;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+
 import java.io.IOException;
 
 public class InitialController {

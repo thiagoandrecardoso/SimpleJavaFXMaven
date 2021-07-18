@@ -84,7 +84,7 @@ public class EventController implements Initializable {
 
         EventsDAO eventsDAO = new EventsDAO();
         events = eventsDAO.findById(id);
-        if (events != null){
+        if (events != null) {
             txtCity.setText(events.getName());
             cbbCities.getSelectionModel().select(citiesDAO.findById((long) events.getId_city()));
             cbbArtist.getSelectionModel().select(artistDAO.findById((long) events.getId_artist()));
