@@ -1,15 +1,28 @@
 package main.java.org.example;
 
-import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class CityController {
 
-    public Button secondaryButton;
+    @FXML
+    private TextField txtCity;
 
     @FXML
-    private void switchToPrimary() throws IOException {
+    private Button btnSaveCity;
+
+    @FXML
+    private Button btnSearch;
+
+    @FXML
+    private Button btnDelete;
+
+
+    @FXML
+    private void saveCity() throws IOException {
         App.setRoot("/main/resources/org/example/initial");
     }
 }
