@@ -12,7 +12,7 @@
         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
     </padding>
     <Label text="Nome:" />
-   <TextField fx:id="txtCity" />
+   <TextField fx:id="txtArtist" />
    <Label text="Cache" />
    <TextField fx:id="txtValue" prefHeight="27.0" prefWidth="375.0" />
     <HBox alignment="CENTER" prefWidth="500.0">
