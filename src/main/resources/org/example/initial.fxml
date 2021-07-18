@@ -14,8 +14,8 @@
       <font>
          <Font name="Arial Black" size="14.0" />
       </font></Label>
-   <Button fx:id="btnCity" onAction="#switchToSecondary" text="Cidade" />
-   <Button fx:id="btnArtist" onAction="#switchToSecondary" text="Artista" />
-   <Button fx:id="btnEventType" onAction="#switchToSecondary" text="Tipo de Evento" />
-   <Button fx:id="btnEvent" onAction="#switchToSecondary" text="Evento" />
+   <Button fx:id="btnCity" onAction="#switchToCity" text="Cidade" />
+   <Button fx:id="btnArtist" onAction="#switchToArtist" text="Artista" />
+   <Button fx:id="btnEventType" onAction="#switchToEventType" text="Tipo de Evento" />
+   <Button fx:id="btnEvent" onAction="#switchToEvent" text="Evento" />
 </VBox>

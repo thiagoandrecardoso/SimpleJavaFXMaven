@@ -19,7 +19,18 @@ public class InitialController {
     private Button btnEvent;
 
     @FXML
-    private void switchToSecondary() throws IOException {
+    private void switchToCity() throws IOException {
         App.setRoot("/main/resources/org/example/city");
+    }
+
+    @FXML
+    public void switchToArtist() throws IOException {
+        App.setRoot("/main/resources/org/example/artist");
+    }
+
+    public void switchToEventType() {
+    }
+
+    public void switchToEvent() {
     }
 }
