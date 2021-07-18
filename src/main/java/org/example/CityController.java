@@ -1,5 +1,6 @@
 package main.java.org.example;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -25,7 +26,6 @@ public class CityController {
         cities = citiesDAO.save(cities);
         String inf = "Salvo com id " + cities.getId();
         informationAction(inf);
-        App.setRoot("/main/resources/org/example/initial");
     }
 
     public void btnSearch() {
@@ -36,7 +36,8 @@ public class CityController {
 
         CitiesDAO citiesDAO = new CitiesDAO();
         cities = citiesDAO.findById(id);
-        txtCity.setText(cities.getName());
+        if (cities != null)
+            txtCity.setText(cities.getName());
     }
 
     public void btnDelete() {
@@ -59,5 +60,9 @@ public class CityController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(inf);
         alert.showAndWait();
+    }
+
+    public void backToMenu() throws IOException {
+        App.setRoot("/main/resources/org/example/initial");
     }
 }

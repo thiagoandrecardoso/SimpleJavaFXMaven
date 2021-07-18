@@ -19,4 +19,5 @@
         <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDelete" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #82f4fa" text="Excluir" />
         <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdate" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #fafa82" text="Atualizar" />
     </HBox>
+   <Button mnemonicParsing="false" onAction="#backToMenu" text="Voltar" />
 </VBox>
