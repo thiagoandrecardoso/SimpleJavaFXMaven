@@ -1,5 +1,6 @@
 package main.java.org.example;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -42,5 +43,9 @@ public class CityController {
             citiesDAO.delete(cities.getId());
             txtCity.setText("");
         }
+    }
+
+    public void btnUpdate() {
+
     }
 }
