@@ -17,7 +17,7 @@
    <TextField fx:id="txtValue" alignment="CENTER" prefHeight="27.0" prefWidth="375.0" />
     <HBox alignment="CENTER" prefWidth="500.0">
         <Button fx:id="btnSaveCity" mnemonicParsing="false" onAction="#btnSaveCity" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #fa828a;" text="Salvar" />
-        <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearch" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #fa828a;" text="Buscar" />
+        <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearch" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #f8fa82;" text="Buscar" />
         <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDelete" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #82f4fa" text="Excluir" />
         <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdate" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #fafa82" text="Atualizar" />
     </HBox>
