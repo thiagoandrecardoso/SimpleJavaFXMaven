@@ -1,7 +1,7 @@
 package main.java.org.example;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import main.java.org.example.dao.CitiesDAO;
@@ -22,7 +22,9 @@ public class CityController {
         CitiesDAO citiesDAO = new CitiesDAO();
         cities = new Cities();
         cities.setName(txtCity.getText());
-        citiesDAO.save(cities);
+        cities = citiesDAO.save(cities);
+        String inf = "Salvo com id " + cities.getId();
+        informationAction(inf);
         App.setRoot("/main/resources/org/example/initial");
     }
 
@@ -46,6 +48,16 @@ public class CityController {
     }
 
     public void btnUpdate() {
+        CitiesDAO citiesDAO = new CitiesDAO();
+        if(cities != null){
+            System.out.println(cities.getId());
+            citiesDAO.update(cities);
+        }
+    }
 
+    public void informationAction(String inf){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(inf);
+        alert.showAndWait();
     }
 }
