@@ -34,4 +34,9 @@ public class Artist {
     public void setCache(float cache) {
         this.cache = cache;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

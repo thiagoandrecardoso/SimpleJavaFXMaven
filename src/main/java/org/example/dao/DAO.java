@@ -8,4 +8,5 @@ public interface DAO<T> {
     T delete(Long id);
 
     T findById(Long id);
+
 }

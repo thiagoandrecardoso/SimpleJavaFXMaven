@@ -2,8 +2,11 @@ package main.java.org.example.dao;
 
 import main.java.org.example.conn.ConnectionFactory;
 import main.java.org.example.model.Artist;
+import main.java.org.example.model.Cities;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.List;
 
 public class ArtistDAO implements DAO<Artist> {
 
@@ -67,5 +70,10 @@ public class ArtistDAO implements DAO<Artist> {
             System.out.println("error find id\n" + e);
         }
         return artist;
+    }
+
+    public List<Artist> getList() {
+        Query query = this.entityManager.createQuery("SELECT p FROM Artist as p");
+        return query.getResultList();
     }
 }

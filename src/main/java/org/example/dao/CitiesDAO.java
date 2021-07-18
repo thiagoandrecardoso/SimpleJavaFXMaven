@@ -3,6 +3,8 @@ package main.java.org.example.dao;
 import main.java.org.example.conn.ConnectionFactory;
 import main.java.org.example.model.Cities;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.List;
 
 public class CitiesDAO implements DAO<Cities> {
 
@@ -66,5 +68,10 @@ public class CitiesDAO implements DAO<Cities> {
             System.out.println("error find id\n" + e);
         }
         return cities;
+    }
+
+    public List<Cities> getList() {
+        Query query = this.entityManager.createQuery("SELECT p FROM Cities as p");
+        return query.getResultList();
     }
 }

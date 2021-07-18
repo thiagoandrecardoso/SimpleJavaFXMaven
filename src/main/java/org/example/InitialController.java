@@ -32,6 +32,7 @@ public class InitialController {
         App.setRoot("/main/resources/org/example/eventtype");
     }
 
-    public void switchToEvent() {
+    public void switchToEvent() throws IOException {
+        App.setRoot("/main/resources/org/example/event");
     }
 }
