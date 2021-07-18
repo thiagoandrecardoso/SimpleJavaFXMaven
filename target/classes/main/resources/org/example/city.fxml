@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="218.0" prefWidth="209.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.org.example.CityController">
+<VBox alignment="CENTER" opacity="0.82" prefHeight="218.0" prefWidth="209.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.org.example.CityController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <Label text="Nome:" />
    <TextField fx:id="txtCity" />
     <HBox alignment="CENTER" prefHeight="48.0" prefWidth="169.0">
-        <Button fx:id="btnSaveCity" onAction="#saveCity" text="Salvar" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #CCFF99;"/>
-        <Button fx:id="btnSearch" mnemonicParsing="false" text="Buscar" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #fa828a;"/>
-        <Button fx:id="btnDelete" mnemonicParsing="false" text="Excluir" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #82f4fa"/>
+        <Button fx:id="btnSaveCity" onAction="#saveCity" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #CCFF99;" text="Salvar" />
+        <Button fx:id="btnSearch" mnemonicParsing="false" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #fa828a;" text="Buscar" />
+        <Button fx:id="btnDelete" mnemonicParsing="false" style="-fx-font: 16px Serif; -fx-padding: 10; -fx-background-color: #82f4fa" text="Excluir" />
     </HBox>
 </VBox>
