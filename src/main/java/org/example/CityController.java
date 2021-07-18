@@ -50,7 +50,7 @@ public class CityController {
     public void btnUpdate() {
         CitiesDAO citiesDAO = new CitiesDAO();
         if(cities != null){
-            System.out.println(cities.getId());
+            cities.setName(txtCity.getText());
             citiesDAO.update(cities);
         }
     }
